@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tablero Baloncesto</string>
+    <string name="local_team">LOCAL</string>
+    <string name="visitor_team">VISITANTE</string>
+    <string name="minus_one">-1</string>
+    <string name="plus_one">+1</string>
+    <string name="plus_two">+2</string>
+    <string name="reset">Resetear marcador</string>
+    <string name="view_results">Ver resultados</string>
+    <string name="final_score">Puntuación final</string>
+    <string name="back_to_game">Volver al juego</string>
+</resources>

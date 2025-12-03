@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="scoreData"
+            type="com.example.tablero_efm.MainActivity.ScoreData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp" />
+
+        <!-- EQUIPO LOCAL - NOMBRE DEL EQUIPO -->
+
+        <TextView
+            android:id="@+id/localTeamLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/local_team"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            android:layout_marginTop="48dp" />
+
+        <!-- EQUIPO LOCAL - NOMBRE DEL EQUIPO -->
+
+        <TextView
+            android:id="@+id/localScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(scoreData.localScore)}"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/localTeamLabel"
+            android:layout_marginTop="16dp" />
+
+        <!-- EQUIPO LOCAL - RESTAR 1 PUNTO -->
+
+        <Button
+            android:id="@+id/localMinusBtn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/minus_one"
+            android:enabled="@{scoreData.localScore > 0}"
+            android:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintEnd_toStartOf="@id/localPlus1Btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/localScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp" />
+
+        <!-- EQUIPO LOCAL - SUMAR 1 PUNTO -->
+
+        <Button
+            android:id="@+id/localPlus1Btn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/plus_one"
+            android:backgroundTint="@android:color/holo_green_light"
+            app:layout_constraintEnd_toStartOf="@id/localPlus2Btn"
+            app:layout_constraintStart_toEndOf="@id/localMinusBtn"
+            app:layout_constraintTop_toBottomOf="@id/localScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp" />
+
+        <!-- EQUIPO LOCAL - SUMAR 2 PUNTOS -->
+
+        <Button
+            android:id="@+id/localPlus2Btn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/plus_two"
+            android:backgroundTint="@android:color/holo_green_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/localPlus1Btn"
+            app:layout_constraintTop_toBottomOf="@id/localScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- EQUIPO VISITANTE  -->
+
+        <TextView
+            android:id="@+id/visitorTeamLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/visitor_team"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/localMinusBtn"
+            android:layout_marginTop="48dp" />
+
+        <TextView
+            android:id="@+id/visitorScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(scoreData.visitorScore)}"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/visitorTeamLabel"
+            android:layout_marginTop="16dp" />
+
+        <!-- EQUIPO VISITANTE - RESTAR 1 PUNTO -->
+
+        <Button
+            android:id="@+id/visitorMinusBtn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/minus_one"
+            android:enabled="@{scoreData.visitorScore > 0}"
+            android:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintEnd_toStartOf="@id/visitorPlus1Btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/visitorScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp" />
+
+        <!-- EQUIPO VISITANTE - SUMAR 1 PUNTO -->
+
+        <Button
+            android:id="@+id/visitorPlus1Btn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/plus_one"
+            android:backgroundTint="@android:color/holo_green_light"
+            app:layout_constraintEnd_toStartOf="@id/visitorPlus2Btn"
+            app:layout_constraintStart_toEndOf="@id/visitorMinusBtn"
+            app:layout_constraintTop_toBottomOf="@id/visitorScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp" />
+
+        <!-- EQUIPO VISITANTE - SUMAR 2 PUNTOS -->
+
+        <Button
+            android:id="@+id/visitorPlus2Btn"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="@string/plus_two"
+            android:backgroundTint="@android:color/holo_green_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/visitorPlus1Btn"
+            app:layout_constraintTop_toBottomOf="@id/visitorScoreText"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- BOTON PARA REINICIAR MARCADORES -->
+
+        <ImageButton
+            android:id="@+id/resetBtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:backgroundTint="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/visitorMinusBtn"
+            android:layout_marginTop="48dp"
+            android:layout_marginStart="32dp"
+            android:contentDescription="@string/reset" />
+
+        <!-- BOTON PARA VER RESULTADOS FINALES -->
+
+        <ImageButton
+            android:id="@+id/resultsBtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@android:drawable/ic_media_next"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/visitorMinusBtn"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/view_results" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
